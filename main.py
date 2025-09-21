@@ -5,8 +5,10 @@ bot = TwitchBot()
 bot.run()
 
 # mark process for kill easilly.
-with open(f"{bot.pathFolder}/main.pid", "w") as f:
-    f.write(str(os.getpid()))
+pathPid = f"{bot.pathFolder}/main.pid"
+if os.path.isfile(pathPid)
+    with open(pathPid, "w") as f:
+        f.write(str(os.getpid()))
 
 # execute in background.
 # nohup python3 <path>/mon_script.py &
