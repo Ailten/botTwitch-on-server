@@ -6,7 +6,7 @@ bot.run()
 
 # mark process for kill easilly.
 pathPid = f"{bot.pathFolder}/main.pid"
-if os.path.isfile(pathPid)
+if os.path.isfile(pathPid):
     with open(pathPid, "w") as f:
         f.write(str(os.getpid()))
 
