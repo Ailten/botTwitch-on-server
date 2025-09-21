@@ -4,6 +4,8 @@ from classFolder.Http import Http
 import re
 import datetime
 import json
+import pathlib
+import asyncio
 
 # importe commandes.
 from classFolder.commandes.Hello import Hello
@@ -26,8 +28,8 @@ class TwitchBot(commands.Bot):
     def __init__(self):
 
         # set path.
-        self.pathFolder = "home/faouzi/Documents/myBotTwitchPython"
-        self.pathToken = f"/{self.pathFolder}/json/tokenTwitch.json"
+        self.pathFolder = pathlib.Path(__file__).parent.parent.resolve()
+        self.pathToken = f"{self.pathFolder}/json/tokenTwitch.json"
 
         # get token obj.
         objToken = self.getTokenObj()
@@ -35,7 +37,8 @@ class TwitchBot(commands.Bot):
         # regen access token.
         isAccessTokenValid = (int(datetime.datetime.now().timestamp()) - objToken["bot"]["appAccessTokenGenerateDate"]) > objToken["bot"]["appAccessTokenExpiresIn"]
         if(isAccessTokenValid):
-            await self.refreshAccessToken()
+            asyncio.run(self.refreshAccessToken())
+            #await self.refreshAccessToken()
 
         ## set esbot and esclient.
         #self.esbot = commands.Bot.from_client_credentials(
