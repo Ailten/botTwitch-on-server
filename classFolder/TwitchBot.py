@@ -34,6 +34,8 @@ class TwitchBot(commands.Bot):
         # get token obj.
         objToken = self.getTokenObj()
 
+        print(objToken)
+
         # regen access token.
         isAccessTokenValid = (int(datetime.datetime.now().timestamp()) - objToken["bot"]["appAccessTokenGenerateDate"]) > objToken["bot"]["appAccessTokenExpiresIn"]
         if(isAccessTokenValid):
