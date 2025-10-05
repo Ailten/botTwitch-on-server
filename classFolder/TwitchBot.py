@@ -11,6 +11,7 @@ import asyncio
 from classFolder.commandes.Hello import Hello
 from classFolder.commandes.Clip import Clip
 from classFolder.commandes.ShootOut import ShootOut
+from classFolder.commandes.HelloOnDiscord import HelloOnDiscord
 
 # DOC : https://twitchio.dev/en/stable/index.html
 # pist for event reward : https://twitchio.dev/en/stable/exts/eventsub.html#twitchio.ext.eventsub.AutoRewardRedeem.reward
@@ -73,7 +74,8 @@ class TwitchBot(commands.Bot):
         self.commandes = [
             Hello(),
             Clip(),
-            ShootOut()
+            ShootOut(),
+            HelloOnDiscord()
         ]
 
         # loop for webhook custom.
@@ -188,7 +190,7 @@ class TwitchBot(commands.Bot):
         #payload = {
         #   ~ 'from': 'botTwitch',
         #   'to': 'botDiscord',
-        #   'event': 'ping-test', # type action todo.
+        #   'event': 'sayInChannelDiscord', # type action todo.
         #   'data': {} # data send (usefull for the event todo).
         #}
 

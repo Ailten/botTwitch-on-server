@@ -1,7 +1,7 @@
 from classFolder.Commande import Commande
 
 
-class Hello(Commande):
+class HelloDiscord(Commande):
     regex = "^!helloDiscord$"
 
     # the execution of commande.
@@ -9,7 +9,7 @@ class Hello(Commande):
 
         responce = client.callBotDiscord({
             'to': 'botDiscord',
-            'event': 'helloDiscord', # type action todo.
+            'event': 'sayInChannelDiscord', # type action todo.
             'data': { # data send (usefull for the event todo).
                 'channelName': 'bot-log',
                 'message': 'Hello ! (from twitch)'
