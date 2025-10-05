@@ -1,7 +1,7 @@
 from classFolder.Commande import Commande
 
 
-class HelloDiscord(Commande):
+class HelloOnDiscord(Commande):
     regex = "^!helloDiscord$"
 
     # the execution of commande.
