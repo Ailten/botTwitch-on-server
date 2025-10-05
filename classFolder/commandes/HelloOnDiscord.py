@@ -7,7 +7,7 @@ class HelloOnDiscord(Commande):
     # the execution of commande.
     async def execute(self, client, message):
 
-        responce = client.callBotDiscord({
+        responce = await client.callBotDiscord({
             'to': 'botDiscord',
             'event': 'sayInChannelDiscord', # type action todo.
             'data': { # data send (usefull for the event todo).

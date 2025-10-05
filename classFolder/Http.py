@@ -26,7 +26,7 @@ class Http:
 
 
     @staticmethod
-    async def callAnotherScript(client, payload):
+    def callAnotherScript(client, payload):
 
         payload["from"] = 'botTwitch'
 
