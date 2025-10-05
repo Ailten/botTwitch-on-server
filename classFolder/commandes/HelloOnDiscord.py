@@ -18,7 +18,7 @@ class HelloDiscord(Commande):
 
         if responce.status_code == 200:
             await message.channel.send("Hello ! (success call discord)")
-        else
+        else:
             await message.channel.send(f"Error {responce.status_code}")
             print(responce)
 
