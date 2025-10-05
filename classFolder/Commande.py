@@ -13,7 +13,7 @@ class Commande:
     # get params from message.
     def extractParams(self, message, isSplitBySpace=True):
 
-        param = re.sub(self.regex, "", message.content)
+        param = re.sub("^![a-zA-Z]{1,}", "", message.content)
 
         if(not isSplitBySpace):
             return param

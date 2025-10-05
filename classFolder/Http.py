@@ -1,6 +1,9 @@
 import requests
 
 class Http:
+    exchangePort = {
+        "botDiscord": "5000" # "botTwitch - botDiscord" == 5000
+    }
 
     @staticmethod
     async def askForNewAccessToken(currentTokenObj):
@@ -23,4 +26,15 @@ class Http:
         #print(responce.text)
 
         return responce.json()
+
+
+    @staticmethod
+    async def callAnotherScript(client, payload):
+
+        payload["from"] = 'botTwitch'
+
+        port = Http.exchangePort[payload["to"]]
+
+        return requests.post(f"http://127.0.0.1:{port}/event", json=payload)
+
 

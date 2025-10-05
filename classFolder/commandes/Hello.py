@@ -2,7 +2,7 @@ from classFolder.Commande import Commande
 
 
 class Hello(Commande):
-    regex = "^!hello"
+    regex = "^!hello$"
 
     # the execution of commande.
     async def execute(self, client, message):

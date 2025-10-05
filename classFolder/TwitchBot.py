@@ -17,12 +17,6 @@ from classFolder.commandes.ShootOut import ShootOut
 
 
 class TwitchBot(commands.Bot):
-    pathFolder: str
-    #botPartialUser: twitchio.PartialUser
-    #brodcasterPartialUser: twitchio.PartialUser
-    #esbot
-    #esclient
-
 
     # contructor.
     def __init__(self):
@@ -103,10 +97,13 @@ class TwitchBot(commands.Bot):
     #        pass
 
 
+    # ----------> function Parent.
+
+
     # event when bot is conected to channel.
     async def event_ready(self):
 
-        print(f"[{self.nick}] is ready !")
+        print(f"bot [{self.nick}] is ready !")
 
 
     # event when viewer join the chat.
@@ -127,6 +124,9 @@ class TwitchBot(commands.Bot):
         for command in self.commandes: # loop on every commandes.
             if(re.search(command.regex, message.content)):
                 await command.execute(self, message)
+
+
+    # ----------> function DIY.
 
 
     # function return object json token.
@@ -180,6 +180,23 @@ class TwitchBot(commands.Bot):
             return
 
         self.setTokenObj(objToken)
+
+    
+    # call the discord bot.
+    async def callBotDiscord(self, payload):
+
+        #payload = {
+        #   ~ 'from': 'botTwitch',
+        #   'to': 'botDiscord',
+        #   'event': 'ping-test', # type action todo.
+        #   'data': {} # data send (usefull for the event todo).
+        #}
+
+        return Http.callAnotherScript(self, payload)
+
+
+
+
 
 
 

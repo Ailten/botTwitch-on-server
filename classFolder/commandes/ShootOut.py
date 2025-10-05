@@ -3,7 +3,7 @@ import datetime
 
 
 class ShootOut(Commande):
-    regex = "^!so"
+    regex = "^!so [@]{0,1}[a-zA-Z0-9]{3,}$"
 
     lastTimeCalled: datetime.datetime.now()
     cooldown: 120
@@ -17,7 +17,7 @@ class ShootOut(Commande):
             return
 
         # compare cooldown time.
-        isCooldownValid = (datetime.datetime.now() - self.lastTimeCalled).total_seconds() > self.cooldown
+        isCooldownValid = (datetime.datetime.now() - ShootOut.lastTimeCalled).total_seconds() > ShootOut.cooldown
 
         # is cooldown unvalid, error.
         if(not isCooldownValid):
@@ -25,10 +25,12 @@ class ShootOut(Commande):
             return
 
         # update time for next cooldown.
-        self.lastTimeCalled = datetime.datetime.now()
+        ShootOut.lastTimeCalled = datetime.datetime.now()
 
         # get param (pseudo viewer to shootout).
         param = self.extractParams(message, isSplitBySpace=False)
+        if param.startswith("@"):
+            param = param[1:]
 
         # get token.
         objToken = client.getTokenObj()
@@ -39,6 +41,11 @@ class ShootOut(Commande):
             token=objToken["bot"]["appAccessToken"], 
             force=False
         )
+
+        # verify if user is found.
+        if len(users) == 0:
+            await message.channel.send("pseudo inconnu.")
+            return
 
         await client.shootOut(users[0].id)
         

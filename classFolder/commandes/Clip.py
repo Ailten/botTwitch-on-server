@@ -12,7 +12,7 @@ class Clip(Commande):
     async def execute(self, client, message):
 
         # compare cooldown time.
-        isCooldownValid = (datetime.datetime.now() - self.lastTimeCalled).total_seconds() > self.cooldown
+        isCooldownValid = (datetime.datetime.now() - Clip.lastTimeCalled).total_seconds() > Clip.cooldown
 
         # is cooldown unvalid, error.
         if(not isCooldownValid):
@@ -20,7 +20,7 @@ class Clip(Commande):
             return
 
         # update time for next cooldown.
-        self.lastTimeCalled = datetime.datetime.now()
+        Clip.lastTimeCalled = datetime.datetime.now()
         
         # try make clip.
         try:
