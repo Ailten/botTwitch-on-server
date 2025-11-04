@@ -11,7 +11,7 @@ class AudioUwu(Commande):
         # todo : inclure an enum in block web socket for eatch type of call ?.
         # or a way to ask a specifique execution with parameters.
 
-        obs = new ObsWebSocket()
+        obs = ObsWebSocket()
         obs.connect(client)
         obs.playAudio("uwu")
         obs.close(client)

@@ -12,6 +12,7 @@ from classFolder.commandes.Hello import Hello
 from classFolder.commandes.Clip import Clip
 from classFolder.commandes.ShootOut import ShootOut
 from classFolder.commandes.HelloOnDiscord import HelloOnDiscord
+from classFolder.commandes.AudioUwu import AudioUwu
 
 # DOC : https://twitchio.dev/en/stable/index.html
 # pist for event reward : https://twitchio.dev/en/stable/exts/eventsub.html#twitchio.ext.eventsub.AutoRewardRedeem.reward
@@ -75,7 +76,8 @@ class TwitchBot(commands.Bot):
             Hello(),
             Clip(),
             ShootOut(),
-            HelloOnDiscord()
+            HelloOnDiscord(),
+            AudioUwu()
         ]
 
         # loop for webhook custom.

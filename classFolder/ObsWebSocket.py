@@ -25,10 +25,12 @@ class ObsWebSocket:
     # play a audio layer.
     def playAudio(self, nameLayer):
 
+        # todo: debug.
+
         print('...')
         print(self.client.get_scene_list())
         print('...')
-        
+
         #self.client.callback.register(on_input_mute_state_changed)
 
         #self.client.call(request.)
