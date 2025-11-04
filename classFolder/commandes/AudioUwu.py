@@ -1,4 +1,5 @@
 from classFolder.Commande import Commande
+from classFolder import ObsWebSocket
 
 
 class AudioUwu(Commande):
@@ -7,4 +8,10 @@ class AudioUwu(Commande):
     # the execution of commande.
     async def execute(self, client, message):
 
-        await client.callObs("instruction-obs-web-socket")
+        # todo : inclure an enum in block web socket for eatch type of call ?.
+        # or a way to ask a specifique execution with parameters.
+
+        obs = new ObsWebSocket()
+        obs.connect(client)
+        obs.playAudio("uwu")
+        obs.close(client)
