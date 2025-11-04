@@ -196,6 +196,11 @@ class TwitchBot(commands.Bot):
 
         return Http.callAnotherScript(self, payload)
 
+    # call obs.
+    async def callObs(self, instruction):
+
+        # todo: call block obs web socket.
+
 
 
 
