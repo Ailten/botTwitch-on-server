@@ -1,5 +1,5 @@
 from classFolder.Commande import Commande
-from classFolder import ObsWebSocket
+from classFolder.ObsWebSocket import ObsWebSocket
 
 
 class AudioUwu(Commande):
