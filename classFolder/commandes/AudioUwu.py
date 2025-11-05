@@ -14,4 +14,4 @@ class AudioUwu(Commande):
         obs = ObsWebSocket()
         obs.connect(client)
         obs.playAudio("uwu")
-        obs.close(client)
+        obs.close()
