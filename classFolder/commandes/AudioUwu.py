@@ -14,5 +14,5 @@ class AudioUwu(Commande):
 
         obs = ObsWebSocket()
         obs.connect(client)
-        obs.playAudio("uwu")  # bug hear -> can't print object with all details.
-        obs.close()  # bug hear -> client is NoneType (connection to obs fail), and bug when try to close.
+        obs.playAudio("uwu")
+        obs.close()
