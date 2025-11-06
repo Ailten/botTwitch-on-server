@@ -11,7 +11,7 @@ class ObsWebSocket:
     def connect(self, bot):
         param = bot.getTokenObj()
         self.client = obsws(
-            param["obs"]["ip"],  #"http://" + 
+            param["obs"]["ip"],
             param["obs"]["port"],
             param["obs"]["password"]
         )
@@ -25,14 +25,13 @@ class ObsWebSocket:
     # debug client.
     def debug(self):
         print(vars(self.client))
-        print(vars(self.client.eventmanager))
     
+
     # play a audio layer.
     def playAudio(self, nameLayer):
-        pass
-
-        #print(self.client)
-
+        
+        print("<-- playAudio -->")
+        print(self.client.send("GetSceneList"))
 
         #self.client.callback.register(on_input_mute_state_changed)
 
