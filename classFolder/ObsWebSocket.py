@@ -31,7 +31,13 @@ class ObsWebSocket:
     def playAudio(self, nameLayer):
         
         print("<-- playAudio -->")
-        print(self.client.call(requests.GetVersion()).getObsVersion())
+        scenes = self.client.call(requests.GetSceneList())
+        print(scenes)
+        print("---")
+        print(scenes.getScenes())
+        print("---")
+        print(scenes.getScenes()[0]["name"])
+
 
         #self.client.callback.register(on_input_mute_state_changed)
 
