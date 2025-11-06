@@ -21,16 +21,16 @@ class ObsWebSocket:
         if(self.client != None):
             self.client.disconnect()
 
+    # debug client.
+    def debug(self):
+        print(vars(self.client))
+        print(vars(self.client.eventmanager))
     
     # play a audio layer.
     def playAudio(self, nameLayer):
+        pass
 
-        # todo: debug.
-
-        print('...')
         #print(self.client)
-        print(vars(self.client))
-        print('...')
 
 
         #self.client.callback.register(on_input_mute_state_changed)
