@@ -28,7 +28,8 @@ class ObsWebSocket:
         # todo: debug.
 
         print('...')
-        print(self.client)
+        #print(self.client)
+        print(vars(self.client))
         print('...')
 
         #self.client.callback.register(on_input_mute_state_changed)
