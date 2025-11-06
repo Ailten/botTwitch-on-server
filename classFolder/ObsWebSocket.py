@@ -11,7 +11,7 @@ class ObsWebSocket:
     def connect(self, bot):
         param = bot.getTokenObj()
         self.client = obsws(
-            param["obs"]["ip"],
+            "http://" + param["obs"]["ip"],
             param["obs"]["port"],
             param["obs"]["password"]
         )
@@ -31,6 +31,7 @@ class ObsWebSocket:
         #print(self.client)
         print(vars(self.client))
         print('...')
+
 
         #self.client.callback.register(on_input_mute_state_changed)
 
