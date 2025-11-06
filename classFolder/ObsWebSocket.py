@@ -15,6 +15,7 @@ class ObsWebSocket:
             param["obs"]["port"],
             param["obs"]["password"]
         )
+        self.client.connect()
 
     # disconnect from obs.
     def close(self):
