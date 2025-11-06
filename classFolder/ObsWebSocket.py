@@ -36,7 +36,7 @@ class ObsWebSocket:
         print("---")
         print(scenes.getScenes())
         print("---")
-        print(scenes.getScenes()[0]["name"])
+        print(scenes.getScenes()[0]["sceneName"])
 
 
         #self.client.callback.register(on_input_mute_state_changed)
