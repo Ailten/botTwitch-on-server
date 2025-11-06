@@ -11,7 +11,7 @@ class ObsWebSocket:
     def connect(self, bot):
         param = bot.getTokenObj()
         self.client = obsws(
-            "http://" + param["obs"]["ip"],
+            param["obs"]["ip"],  #"http://" + 
             param["obs"]["port"],
             param["obs"]["password"]
         )
